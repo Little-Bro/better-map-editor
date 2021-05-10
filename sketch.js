@@ -38,23 +38,25 @@ function draw() {
 }
 
 function mousePressed() {
-  if (!lineStarted) {
-    lineStarted = true;
-    oriX = mouseX;
-    oriY = mouseY;
+  if (mouseX > 0 && mouseX < width && mouseY > 0 && mouseY < height) {
+    if (!lineStarted) {
+      lineStarted = true;
+      oriX = mouseX;
+      oriY = mouseY;
 
-    origin_point_json = JSON.stringify([oriX, oriY]);
+      origin_point_json = JSON.stringify([oriX, oriY]);
 
-  } else {
-    lineStarted = false;
-    destX = mouseX;
-    destY = mouseY;
+    } else {
+      lineStarted = false;
+      destX = mouseX;
+      destY = mouseY;
 
-    destination_point_json = JSON.stringify([destX, destY]);
+      destination_point_json = JSON.stringify([destX, destY]);
 
-    // loading data into json
-    initial_data[origin_point_json] = destination_point_json;
-    console.log(initial_data);
+      // loading data into json
+      initial_data[origin_point_json] = destination_point_json;
+      console.log(initial_data);
+    }
   }
 }
 
